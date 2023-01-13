@@ -1,4 +1,7 @@
-from sense_hat import SenseHat
+
+# Import based on using a physical RPi or the emulator
+from sense_emu import SenseHat
+# from sense_hat import SenseHat
 sense = SenseHat()
 
 red = (255,0,0)
