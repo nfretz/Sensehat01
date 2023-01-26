@@ -1,28 +1,39 @@
 
 import json
 import requests
-from time import sleep
+import time
 
 # Import based on using a physical RPi or the emulator
 #from sense_emu import SenseHat
 from sense_hat import SenseHat
 
 # Constants
-
+INTERVAL            = 3  #Data capture and upload interval in seconds.
 API_KEY             = "YvQgyTDdZ3Fa8mpt6niH"
 THINGSBOARD_HOST    = "192.168.1.82:8080"
 
 thingsboard_url     = "http://{0}/api/v1/{1}/telemetry".format(THINGSBOARD_HOST, API_KEY)
-print (thingsboard_url)
+
 sense = SenseHat()
 data = {}
+next_reading = time.time()
 
-while True:
-    data['temperature'] = sense.get_temperature()
-    data['pressure'] = sense.get_pressure()
-    data['humidity'] = sense.get_humidity()
-    r = requests.post(thingsboard_url, data=json.dumps(data))
-    print (str(data))
-    sleep(5)
+try:
+    while True:
+        data['temperature'] = sense.get_temperature()
+        data['pressure'] = sense.get_pressure()
+        data['humidity'] = sense.get_humidity()
+        
+        #Sending data to Thingsboard
+        r = requests.post(thingsboard_url, data=json.dumps(data))
+
+        next_reading += INTERVAL
+        sleep_time = next_reading-time.time()
+        if sleep_time > 0:
+            time.sleep(sleep_time)
+except KeyboardInterrupt:
+    pass
+
+
 
 
