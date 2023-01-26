@@ -9,11 +9,11 @@ from sense_hat import SenseHat
 
 # Constants
 
-API_KEY             = "jrAlYyNVNG1fYX6Woxky"
+API_KEY             = "YvQgyTDdZ3Fa8mpt6niH"
 THINGSBOARD_HOST    = "192.168.1.82:8080"
 
 thingsboard_url     = "http://{0}/api/v1/{1}/telemetry".format(THINGSBOARD_HOST, API_KEY)
-
+print (thingsboard_url)
 sense = SenseHat()
 data = {}
 
