@@ -5,12 +5,12 @@ import time
 
 # Import based on using a physical RPi or the emulator
 #from sense_emu import SenseHat
-from sense_hat import SenseHat
+from sense_emu import SenseHat
 
 # Constants
 INTERVAL            = 3  #Data capture and upload interval in seconds.
-API_KEY             = "YvQgyTDdZ3Fa8mpt6niH"
-THINGSBOARD_HOST    = "192.168.1.82:8080"
+API_KEY             = "qdw0aq16tr2ejjnzf5wc"
+THINGSBOARD_HOST    = "192.168.1.88:8080"
 
 thingsboard_url     = "http://{0}/api/v1/{1}/telemetry".format(THINGSBOARD_HOST, API_KEY)
 
