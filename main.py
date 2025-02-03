@@ -9,8 +9,8 @@ from sense_emu import SenseHat
 
 # Constants
 INTERVAL            = 3  #Data capture and upload interval in seconds.
-API_KEY             = "qdw0aq16tr2ejjnzf5wc"
-THINGSBOARD_HOST    = "192.168.1.88:8080"
+API_KEY             = "bfsfmi1v6oo29qq69msr"
+THINGSBOARD_HOST    = "192.168.1.223:8080"
 
 thingsboard_url     = "http://{0}/api/v1/{1}/telemetry".format(THINGSBOARD_HOST, API_KEY)
 
